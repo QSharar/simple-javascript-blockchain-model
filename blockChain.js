@@ -39,9 +39,6 @@ class BlockChain {
 
     printChain(){
         console.log(blockChain);
-        // for( var i = 0; i<this.chain.length ; i++){
-        //     console.log(this.chain[i]);
-        // }
     }
 
     isValid(){
@@ -61,8 +58,10 @@ class BlockChain {
     }
 }
 
+// creating new instance of blockchain
+
 let blockChain = new BlockChain();
-blockChain.addBlock("quazi", "parveen", 100000);
+blockChain.addBlock("xxx", "yyy", 100000);
 
 
 new Promise( (resolve, reject) => {
@@ -71,13 +70,11 @@ new Promise( (resolve, reject) => {
         blockChain.addBlock( rand[Math.round(Math.random()*4)], rand[Math.round(Math.random()*4)], rand[Math.round(Math.random()*4)]);
     }
     resolve();
-}).then( () => {
+}).then( () => { //input fake data
     blockChain.chain[2].amount = 100000;
-    blockChain.chain[2].hash = blockChain.chain[2].calculateHash();
-    }).then( () => console.log(blockChain.isValid()) );
+    blockChain.chain[2].hash = blockChain.chain[2].calculateHash(); 
+    }).then( () => console.log(blockChain.isValid()) ); //check if blockchain validation works 
 
-
-
+//print blockchain
 
 blockChain.printChain();
-// console.log(chain[2].);
